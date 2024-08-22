@@ -1,12 +1,27 @@
 import React, { useState } from "react";
 import logo from "@/assets/imagens/variant02.png";
+import { useNavigate } from "react-router-dom";
 
 export function Cabecalho() {
+  const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+
+  const inicio = () => {
+    navigate("/")
+  }
+  const sobre = () => {
+    navigate("/sobre")
+  }
+  const servicos = () => {
+    navigate("/servicos")
+  }
+  const contato = () => {
+    navigate("/contato")
+  }
 
   return (
     <header className="cabecalho">
@@ -22,24 +37,18 @@ export function Cabecalho() {
         </div>
         <nav className={`cabecalho__nav ${menuOpen ? "open" : ""}`}>
           <ul>
-            <li>
-              <a href="#inicio" onClick={toggleMenu}>
-                Início
-              </a>
+            <li onClick={inicio}>
+              <a onClick={toggleMenu}>Início</a>
             </li>
-            <li>
-              <a href="#sobre" onClick={toggleMenu}>
-                Sobre
-              </a>
+            <li onClick={sobre}>
+              <a onClick={toggleMenu}>Sobre</a>
             </li>
-            <li>
-              <a href="#serviços" onClick={toggleMenu}>
-                Serviços
-              </a>
+            <li onClick={servicos}>
+              <a onClick={toggleMenu}>Serviços</a>
             </li>
-            <li>
+            <li onClick={contato}>
               <a
-              style={{cursor: "pointer"}}
+                style={{ cursor: "pointer" }}
                 onClick={() =>
                   window.open(
                     "https://wa.me/5547991424212?text=Olá,%20tenho%20interesse%20em%20conhecer%20a%20RosaTech!",
