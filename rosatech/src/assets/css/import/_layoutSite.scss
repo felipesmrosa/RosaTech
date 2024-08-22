@@ -1,0 +1,330 @@
+.cabecalho {
+  background: $gradient_Cinza;
+  color: $azul;
+  padding: 1rem 0;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+
+    &--logo {
+      width: 100%;
+      max-width: 100px;
+      height: auto;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+
+      li {
+        margin-left: 2.5rem;
+        position: relative;
+
+        a {
+          font-size: 18px;
+          font-weight: 600;
+          letter-spacing: 2px;
+          text-decoration: none;
+          text-transform: uppercase;
+          color: $azul;
+          padding: 0.5rem 0;
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: $azulHover;
+          }
+          &:after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: $azulHover;
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+          }
+
+          &:hover:after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+          }
+        }
+      }
+    }
+  }
+}
+
+.banner {
+  position: relative;
+  color: $branco;
+  text-align: center;
+  padding: 15rem 1rem;
+
+  &__background {
+    background: url("/src/assets/imagens/banner.jpg") no-repeat center center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    z-index: 1;
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: 2;
+  }
+
+  &__container {
+    position: relative;
+    z-index: 3;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    h2 {
+      font-size: 2.5rem;
+    }
+
+    img {
+      width: 100%;
+      max-width: 25px;
+      height: auto;
+    }
+
+    p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    button {
+      background: $azul;
+      color: $branco;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 28px;
+      cursor: pointer;
+      font-size: 1rem;
+
+      &:hover {
+        background: $azulHover;
+      }
+    }
+  }
+}
+
+.footer {
+  background-color: $cinza;
+  color: $branco;
+  padding: 20px 0px 0px 0px;
+  text-align: center;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    &__logo {
+      text-align: start;
+      flex: 1;
+
+      img {
+        max-width: 100%;
+        height: auto;
+        max-height: 100px;
+      }
+    }
+
+    &__info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+
+      p {
+        margin: 5px 0;
+
+        a {
+          color: $branco;
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+  &__copyright {
+    margin-top: 10px;
+    font-size: 0.9rem;
+  }
+}
+
+.landingPage {
+  &__section {
+    padding: 60px 0;
+
+    &:nth-child(odd) {
+      background-color: $branco;
+      color: $cinza;
+    }
+
+    &:nth-child(even) {
+      background-color: $cinza;
+      color: $branco;
+    }
+  }
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0px 20px;
+
+    &--about {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .landingPage__text {
+        flex: 1;
+        max-width: 600px;
+        padding: 20px;
+
+        h2 {
+          font-size: 2rem;
+          color: $cinza;
+          margin-bottom: 15px;
+        }
+
+        p {
+          font-size: 1.1rem;
+          line-height: 1.6;
+          color: $cinza;
+        }
+      }
+
+      .landingPage__image {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        max-width: 400px;
+
+        img {
+          width: 100%;
+          border-radius: 10px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+
+    .avaliacoes__lista {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+
+      .avaliacoes__coluna {
+        flex: 1 1 45%;
+        display: flex;
+        flex-direction: column;
+
+        .avaliacao {
+          background: $branco;
+          border-radius: 8px;
+          padding: 15px;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+          margin-bottom: 15px;
+
+          p {
+            font-size: 1rem;
+            color: $cinza;
+            margin: 0;
+          }
+
+          span {
+            display: block;
+            font-size: 0.9rem;
+            color: $azul;
+            margin-top: 5px;
+          }
+        }
+      }
+    }
+  }
+
+  .landingPage__cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 40px 20px;
+
+    &__card {
+      flex: 1 1 300px;
+      max-width: 400px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      padding: 20px;
+      text-align: left;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+      h3 {
+        font-size: 1.4rem;
+        color: $branco;
+        margin-bottom: 10px;
+        border-bottom: 2px solid $azul;
+        padding-bottom: 5px;
+      }
+
+      p {
+        font-size: 1rem;
+        margin-bottom: 15px;
+        color: $branco;
+      }
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      .price {
+        font-size: 1.3rem;
+        background: $gradient_azul;
+        border-radius: 28px;
+        padding: 4px 12px;
+        color: $cinza;
+        font-weight: bold;
+      }
+    }
+  }
+}

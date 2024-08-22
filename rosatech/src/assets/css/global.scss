@@ -1,0 +1,20 @@
+$cinza: #333333;
+$gradient_Cinza: linear-gradient(180deg, #333333, #1c1c1c);
+$gradient_azul: linear-gradient(180deg, #1190cb, #0f81b6);
+$gradient_Cinza2: linear-gradient(0deg, #333333, #1c1c1c);
+$azul: #1190cb;
+$azulHover: #0f81b6;
+$branco: #d8d8d8;
+$branco_Puro: #ffffff;
+$borda-card: #cbcbcb;
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Nunito";
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $branco;
+}
