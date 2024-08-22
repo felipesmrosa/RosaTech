@@ -12,6 +12,10 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1rem;
+
+    @media (max-width: 768px) {
+      padding: 0 2rem;
+    }
   }
 
   &__logo {
@@ -49,7 +53,7 @@
     }
 
     &.open span:nth-child(3) {
-      transform: rotate(-45deg) translate(5px, -5px);
+      transform: rotate(-45deg) translate(5px, -6px);
     }
   }
 
