@@ -1,20 +1,33 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Banner } from "@/componentes/Site/Banner/Index";
 import { Cabecalho } from "@/componentes/Site/Cabecalho/Index";
 import programadores from "@/assets/imagens/programadores.jpg";
 import React, { useState } from "react";
 import { Rodape } from "@/componentes/Site/Rodape/Index";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
+import { Linguagens } from "@/componentes/Site/Linguagens/Index";
 
 export function Home() {
-  const [priceTextOrquidea, setPriceTextOrquidea] = useState("R$ 1.700,00");
+  const [priceTextOrquidea, setPriceTextOrquidea] = useState("R$ 1.800,00");
   const [priceTextGirassol, setPriceTextGirassol] = useState("R$ 2.500,00");
-  const [priceTextRosa, setPriceTextRosa] = useState("R$ 4.000,00");
+  const [priceTextRosa, setPriceTextRosa] = useState("R$ 3.500,00");
+  const [showTooltip, setShowTooltip] = useState(false);
 
-  const handleMouseEnter = (setter, text) => {
+  const mostrarPreco = (setter, text) => {
     setter(text);
   };
 
-  const handleMouseLeave = (setter, text) => {
+  const sumirPreco = (setter, text) => {
     setter(text);
+  };
+
+  const abrirInfoMensalidade = () => {
+    setShowTooltip(true);
+  };
+
+  const fecharInfoMensalidade = () => {
+    setShowTooltip(false);
   };
 
   return (
@@ -22,7 +35,7 @@ export function Home() {
       <Cabecalho />
       <Banner />
 
-      <section className="landingPage__section" id="about">
+      <section className="landingPage__section" id="sobre">
         <div className="landingPage__container landingPage__container--about">
           <div className="landingPage__text">
             <h2>Sobre Nós</h2>
@@ -39,7 +52,7 @@ export function Home() {
         </div>
       </section>
 
-      <section className="landingPage__section" id="services">
+      <section className="landingPage__section" id="serviços">
         <div className="landingPage__container">
           <h2>Serviços</h2>
           <div className="landingPage__cards">
@@ -52,10 +65,10 @@ export function Home() {
               }
               style={{ cursor: "pointer" }}
               onMouseEnter={() =>
-                handleMouseEnter(setPriceTextOrquidea, "Entrar em contato")
+                mostrarPreco(setPriceTextOrquidea, "Entrar em contato")
               }
               onMouseLeave={() =>
-                handleMouseLeave(setPriceTextOrquidea, "R$ 1.700,00")
+                sumirPreco(setPriceTextOrquidea, "R$ 1.800,00")
               }
               className="landingPage__cards__card"
             >
@@ -65,7 +78,6 @@ export function Home() {
                 oferece o desenvolvimento de um site profissional com design
                 responsivo e otimização para SEO.
               </p>
-              <p>R$ 49,99 por manutenções.</p>
               <span className="price">{priceTextOrquidea}</span>
             </div>
             <div
@@ -77,10 +89,10 @@ export function Home() {
               }
               style={{ cursor: "pointer" }}
               onMouseEnter={() =>
-                handleMouseEnter(setPriceTextGirassol, "Entrar em contato")
+                mostrarPreco(setPriceTextGirassol, "Entrar em contato")
               }
               onMouseLeave={() =>
-                handleMouseLeave(setPriceTextGirassol, "R$ 2.500,00")
+                sumirPreco(setPriceTextGirassol, "R$ 2.500,00")
               }
               className="landingPage__cards__card"
             >
@@ -90,7 +102,25 @@ export function Home() {
                 sistema personalizado para gerenciamento de clientes, produtos e
                 processos internos.
               </p>
-              <p>R$ 150,00 mensal para usar o sistema.</p>
+              <p>
+                <strong>Mensalidade:</strong> R$150
+                <FontAwesomeIcon
+                  onMouseEnter={abrirInfoMensalidade}
+                  onMouseLeave={fecharInfoMensalidade}
+                  style={{ marginLeft: "4px", cursor: "pointer" }}
+                  icon={faCircleInfo}
+                />
+                {showTooltip && (
+                  <span className="tooltip">
+                    Estamos em constante evolução, garantindo que seu sistema
+                    esteja sempre atualizado com as melhores práticas e
+                    tecnologias, sem complicações.
+                  </span>
+                )}
+                <br />
+                <strong>Usuário adicional:</strong> R$30
+              </p>
+
               <span className="price">{priceTextGirassol}</span>
             </div>
             <div
@@ -102,11 +132,9 @@ export function Home() {
               }
               style={{ cursor: "pointer" }}
               onMouseEnter={() =>
-                handleMouseEnter(setPriceTextRosa, "Entrar em contato")
+                mostrarPreco(setPriceTextRosa, "Entrar em contato")
               }
-              onMouseLeave={() =>
-                handleMouseLeave(setPriceTextRosa, "R$ 4.000,00")
-              }
+              onMouseLeave={() => sumirPreco(setPriceTextRosa, "R$ 3.500,00")}
               className="landingPage__cards__card"
             >
               <h3>Pacote Rosa</h3>
@@ -116,14 +144,28 @@ export function Home() {
                 proporcionando uma solução digital completa.
               </p>
               <p>
-                1° mês GRATIS! <br />
-                R$ 250,00 mensal para usar sistema
+                <strong>Mensalidade:</strong> R$220
+                <FontAwesomeIcon
+                  onMouseEnter={abrirInfoMensalidade}
+                  onMouseLeave={fecharInfoMensalidade}
+                  style={{ marginLeft: "4px", cursor: "pointer" }}
+                  icon={faCircleInfo}
+                />
+                {showTooltip && (
+                  <span className="tooltip">
+                    Estamos em constante evolução, garantindo que seu sistema
+                    esteja sempre atualizado com as melhores práticas e
+                    tecnologias, sem complicações.
+                  </span>
+                )}
               </p>
               <span className="price">{priceTextRosa}</span>
             </div>
           </div>
         </div>
+        <Linguagens />
       </section>
+
       <section className="landingPage__section" id="avaliacoes">
         <div className="landingPage__container">
           <h2>Avaliações de Clientes</h2>
@@ -135,44 +177,30 @@ export function Home() {
                   "A RosaTech transformou a maneira como gerenciamos nossos
                   processos. Excelente serviço!"
                 </p>
-                <span>- Cliente A</span>
+                <span>- Academia Barossi</span>
               </div>
               <div className="avaliacao">
                 <p>
                   "A equipe é extremamente profissional e sempre pronta para
                   ajudar. Recomendo!"
                 </p>
-                <span>- Cliente B</span>
-              </div>
-              <div className="avaliacao">
-                <p>
-                  "Graças à RosaTech, nosso site ficou incrível e muito mais
-                  funcional."
-                </p>
-                <span>- Cliente C</span>
+                <span>- othiagooliveira</span>
               </div>
             </div>
             <div className="avaliacoes__coluna">
               <div className="avaliacao">
                 <p>
-                  "Atendimento excepcional e soluções práticas para o nosso
-                  negócio."
+                  "Graças à RosaTech, nosso site ficou incrível e muito mais
+                  funcional."
                 </p>
-                <span>- Cliente D</span>
-              </div>
-              <div className="avaliacao">
-                <p>
-                  "Os resultados superaram nossas expectativas. Agradecemos pelo
-                  suporte!"
-                </p>
-                <span>- Cliente E</span>
+                <span>- Gabriela Andrea</span>
               </div>
               <div className="avaliacao">
                 <p>
                   "Recomendo a RosaTech a todos que buscam inovação e
                   qualidade."
                 </p>
-                <span>- Cliente F</span>
+                <span>- PokeCenter ITJ</span>
               </div>
             </div>
           </div>

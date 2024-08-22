@@ -2,6 +2,8 @@
   background: $gradient_Cinza;
   color: $azul;
   padding: 1rem 0;
+  position: relative;
+  z-index: 10;
 
   &__container {
     display: flex;
@@ -10,53 +12,115 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1rem;
+  }
 
-    &--logo {
-      width: 100%;
-      max-width: 100px;
-      height: auto;
+  &__logo {
+    max-width: 100px;
+    height: auto;
+
+    @media (max-width: 768px) {
+      max-width: 70px;
     }
-    nav ul {
+  }
+
+  &__menu-icon {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 24px;
+
+    span {
+      display: block;
+      width: 100%;
+      height: 3px;
+      background-color: $azul;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    &.open span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    &.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    &.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+  }
+
+  &__nav {
+    ul {
       list-style: none;
       margin: 0;
       padding: 0;
       display: flex;
+      align-items: center;
 
       li {
-        margin-left: 2.5rem;
-        position: relative;
+        margin-left: 3rem;
 
         a {
           font-size: 18px;
           font-weight: 600;
-          letter-spacing: 2px;
-          text-decoration: none;
+          letter-spacing: 1.5px;
           text-transform: uppercase;
           color: $azul;
+          text-decoration: none;
           padding: 0.5rem 0;
           transition: color 0.3s ease;
 
           &:hover {
             color: $azulHover;
           }
-          &:after {
-            content: "";
-            position: absolute;
-            width: 100%;
-            transform: scaleX(0);
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: $azulHover;
-            transform-origin: bottom right;
-            transition: transform 0.25s ease-out;
-          }
+        }
+      }
+    }
 
-          &:hover:after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
+    @media (max-width: 768px) {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: $gradient_Cinza2;
+      flex-direction: column;
+      align-items: center;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+
+      &.open {
+        max-height: 100vh;
+      }
+
+      ul {
+        flex-direction: column;
+
+        li {
+          margin: 10px 0;
+
+          a {
+            font-size: 1.2rem;
           }
         }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    &__menu-icon {
+      display: flex;
+    }
+
+    &__nav {
+      display: none;
+      &.open {
+        display: flex;
       }
     }
   }
@@ -66,7 +130,7 @@
   position: relative;
   color: $branco;
   text-align: center;
-  padding: 15rem 1rem;
+  padding: 10rem 1rem;
 
   &__background {
     background: url("/src/assets/imagens/banner.jpg") no-repeat center center;
@@ -97,6 +161,10 @@
 
     h2 {
       font-size: 2.5rem;
+
+      @media (max-width: 768px) {
+        font-size: 2rem;
+      }
     }
 
     img {
@@ -108,6 +176,10 @@
     p {
       font-size: 1.25rem;
       margin-bottom: 2rem;
+
+      @media (max-width: 768px) {
+        font-size: 1rem;
+      }
     }
 
     button {
@@ -121,6 +193,11 @@
 
       &:hover {
         background: $azulHover;
+      }
+
+      @media (max-width: 768px) {
+        width: 100%;
+        padding: 10px;
       }
     }
   }
@@ -162,6 +239,11 @@
       flex-direction: column;
       align-items: flex-end;
 
+      @media (max-width: 768px) {
+        align-items: center;
+        margin-top: 20px;
+      }
+
       p {
         margin: 5px 0;
 
@@ -180,10 +262,32 @@
   &__copyright {
     margin-top: 10px;
     font-size: 0.9rem;
+
+    @media (max-width: 768px) {
+      font-size: 0.8rem;
+    }
   }
 }
 
 .landingPage {
+  .tooltip {
+    position: absolute;
+    background-color: $branco;
+    color: $cinza;
+    padding: 5px 10px;
+    border-radius: 4px;
+    bottom: 40%;
+    left: 0px;
+    z-index: 10;
+    font-size: 12px;
+
+    @media (max-width: 768px) {
+      font-size: 10px;
+      padding: 3px 8px;
+      bottom: 50%;
+    }
+  }
+
   &__section {
     padding: 60px 0;
 
@@ -195,6 +299,10 @@
     &:nth-child(even) {
       background-color: $cinza;
       color: $branco;
+    }
+
+    @media (max-width: 768px) {
+      padding: 40px 0;
     }
   }
 
@@ -212,7 +320,7 @@
 
       @media (max-width: 768px) {
         flex-direction: column;
-        text-align: center;
+        text-align: start;
       }
 
       .landingPage__text {
@@ -224,12 +332,20 @@
           font-size: 2rem;
           color: $cinza;
           margin-bottom: 15px;
+
+          @media (max-width: 768px) {
+            font-size: 1.5rem;
+          }
         }
 
         p {
           font-size: 1.1rem;
           line-height: 1.6;
           color: $cinza;
+
+          @media (max-width: 768px) {
+            font-size: 1rem;
+          }
         }
       }
 
@@ -253,6 +369,11 @@
       flex-wrap: wrap;
       gap: 20px;
 
+      @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 15px;
+      }
+
       .avaliacoes__coluna {
         flex: 1 1 45%;
         display: flex;
@@ -269,6 +390,10 @@
             font-size: 1rem;
             color: $cinza;
             margin: 0;
+
+            @media (max-width: 768px) {
+              font-size: 0.9rem;
+            }
           }
 
           span {
@@ -276,6 +401,10 @@
             font-size: 0.9rem;
             color: $azul;
             margin-top: 5px;
+
+            @media (max-width: 768px) {
+              font-size: 0.8rem;
+            }
           }
         }
       }
@@ -288,6 +417,11 @@
     gap: 20px;
     flex-wrap: wrap;
     padding: 40px 20px;
+
+    @media (max-width: 768px) {
+      padding: 30px 10px;
+      gap: 15px;
+    }
 
     &__card {
       flex: 1 1 300px;
@@ -304,12 +438,20 @@
         margin-bottom: 10px;
         border-bottom: 2px solid $azul;
         padding-bottom: 5px;
+
+        @media (max-width: 768px) {
+          font-size: 1.2rem;
+        }
       }
 
       p {
         font-size: 1rem;
         margin-bottom: 15px;
         color: $branco;
+
+        @media (max-width: 768px) {
+          font-size: 0.9rem;
+        }
       }
 
       &:hover {
@@ -324,6 +466,62 @@
         padding: 4px 12px;
         color: $cinza;
         font-weight: bold;
+
+        @media (max-width: 768px) {
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
+}
+
+.linguagens {
+  background-color: $cinza;
+  padding: 0px 0px 40px 0px;
+  text-align: start;
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+
+    h2 {
+      color: $branco;
+      margin-bottom: 20px;
+    }
+
+    .linguagens__icons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      cursor: pointer;
+      gap: 20px;
+    }
+
+    .linguagens__item {
+      background: $cinza;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      width: 100px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      p {
+        margin-top: 10px;
+        font-size: 1rem;
+        color: $azul;
+        font-weight: bold;
+      }
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .linguagens__icon {
+        color: $azul;
+        font-size: 2rem;
       }
     }
   }

@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "@/assets/imagens/variant01.png"
+import logo from "@/assets/imagens/variant01.png";
 
 export function Rodape() {
   return (
@@ -9,9 +9,9 @@ export function Rodape() {
           <img src={logo} alt="Logo da RosaTech" />
         </div>
         <div className="footer__container__info">
-          <p>Contato: contato@rosatech.com.br</p>
-          <p>Telefone: (11) 1234-5678</p>
-          <p>
+          <p>Contato: felipesmrosa@gmail.com</p>
+          <p>Telefone: (47) 9 9142-4212</p>
+          {/* <p>
             <a
               href="https://www.instagram.com/rosatech"
               target="_blank"
@@ -19,11 +19,11 @@ export function Rodape() {
             >
               Instagram
             </a>
-          </p>
+          </p> */}
         </div>
       </div>
       <div className="footer__copyright">
-        <p>© 2024  - Soluções tecnológicas para o seu negócio.</p>
+        <p>© 2024 - Soluções tecnológicas para o seu negócio.</p>
       </div>
     </footer>
   );
