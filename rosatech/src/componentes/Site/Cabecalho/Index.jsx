@@ -11,17 +11,22 @@ export function Cabecalho() {
   };
 
   const inicio = () => {
-    navigate("/")
-  }
-  const sobre = () => {
-    navigate("/sobre")
-  }
-  const servicos = () => {
-    navigate("/servicos")
-  }
+    navigate("/");
+    setMenuOpen(false); // Fecha o menu após a navegação
+  };
+
   const contato = () => {
-    navigate("/contato")
-  }
+    navigate("/contato");
+    setMenuOpen(false); // Fecha o menu após a navegação
+  };
+
+  const handleScroll = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+    setMenuOpen(false);
+  };
 
   return (
     <header className="cabecalho">
@@ -37,27 +42,17 @@ export function Cabecalho() {
         </div>
         <nav className={`cabecalho__nav ${menuOpen ? "open" : ""}`}>
           <ul>
-            <li onClick={inicio}>
-              <a onClick={toggleMenu}>Início</a>
+            <li>
+              <a onClick={inicio}>Início</a>
             </li>
-            <li onClick={sobre}>
-              <a onClick={toggleMenu}>Sobre</a>
+            <li>
+              <a onClick={() => handleScroll("sobre")}>Sobre</a>
             </li>
-            <li onClick={servicos}>
-              <a onClick={toggleMenu}>Serviços</a>
+            <li>
+              <a onClick={() => handleScroll("servicos")}>Serviços</a>
             </li>
-            <li onClick={contato}>
-              <a
-                style={{ cursor: "pointer" }}
-                onClick={() =>
-                  window.open(
-                    "https://wa.me/5547991424212?text=Olá,%20tenho%20interesse%20em%20conhecer%20a%20RosaTech!",
-                    "_blank"
-                  )
-                }
-              >
-                Contato
-              </a>
+            <li>
+              <a onClick={contato}>Contato</a>
             </li>
           </ul>
         </nav>

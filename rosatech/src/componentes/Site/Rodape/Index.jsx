@@ -9,17 +9,8 @@ export function Rodape() {
           <img src={logo} alt="Logo da RosaTech" />
         </div>
         <div className="footer__container__info">
-          <p>Contato: felipesmrosa@gmail.com</p>
+          <p>Email: felipesmrosa@gmail.com</p>
           <p>Telefone: (47) 9 9142-4212</p>
-          {/* <p>
-            <a
-              href="https://www.instagram.com/rosatech"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Instagram
-            </a>
-          </p> */}
         </div>
       </div>
       <div className="footer__copyright">

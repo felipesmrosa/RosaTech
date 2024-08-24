@@ -21,7 +21,7 @@ export function Produtos() {
   };
 
   return (
-    <section className="landingPage__section" id="serviços">
+    <section className="landingPage__section" id="servicos">
       <div className="landingPage__container">
         <h2>Serviços</h2>
         <div className="landingPage__cards">

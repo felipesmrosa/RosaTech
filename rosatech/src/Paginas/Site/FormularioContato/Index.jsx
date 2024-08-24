@@ -30,8 +30,8 @@ export const FormularioContato = () => {
         <title>Contato | RosaTech</title>
       </Helmet>
       <div className="formulario__container">
-        <h2>Entre em Contato</h2>
         <form onSubmit={handleSubmit}>
+          <h2>Entre em Contato</h2>
           <label>
             Nome:
             <input
