@@ -45,22 +45,8 @@ export function Home() {
                   </p>
                   <span>- Academia Barossi</span>
                 </div>
-                <div className="avaliacao">
-                  <p>
-                    "A equipe é extremamente profissional e sempre pronta para
-                    ajudar. Recomendo!"
-                  </p>
-                  <span>- othiagooliveira</span>
-                </div>
               </div>
               <div className="avaliacoes__coluna">
-                <div className="avaliacao">
-                  <p>
-                    "Graças à RosaTech, nosso site ficou incrível e muito mais
-                    funcional."
-                  </p>
-                  <span>- Gabriela Andrea</span>
-                </div>
                 <div className="avaliacao">
                   <p>
                     "Recomendo a RosaTech a todos que buscam inovação e

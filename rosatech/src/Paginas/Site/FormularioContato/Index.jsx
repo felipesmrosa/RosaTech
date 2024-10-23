@@ -19,7 +19,7 @@ export const FormularioContato = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const whatsappLink = `https://api.whatsapp.com/send?phone=+5547991424212&text=${encodeURIComponent(
-      `Nome: ${formData.name}\nWhatsapp: ${formData.email}\nAssunto: ${formData.subject}\nMensagem: ${formData.message}`
+      `*Nome:* ${formData.name}\n*Assunto:* ${formData.subject}\n\n*Mensagem:* ${formData.message}`
     )}`;
     window.open(whatsappLink, "_blank");
   };
@@ -38,17 +38,6 @@ export const FormularioContato = () => {
               type="text"
               name="name"
               value={formData.name}
-              onChange={handleChange}
-              required
-              autoComplete="off"
-            />
-          </label>
-          <label>
-            email:
-            <input
-              type="text"
-              name="email"
-              value={formData.email}
               onChange={handleChange}
               required
               autoComplete="off"
