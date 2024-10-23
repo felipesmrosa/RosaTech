@@ -55,7 +55,7 @@ export function Produtos() {
               processos internos.
             </p>
             <p>
-              <strong>Mensalidade:</strong> R$150
+              <strong>Mensalidade:</strong> R$120
               <FontAwesomeIcon
                 onMouseEnter={abrirInfoMensalidade}
                 onMouseLeave={fecharInfoMensalidade}
@@ -90,7 +90,7 @@ export function Produtos() {
               uma solução digital completa.
             </p>
             <p>
-              <strong>Mensalidade:</strong> R$220
+              <strong>Mensalidade:</strong> R$160
               <FontAwesomeIcon
                 onMouseEnter={abrirInfoMensalidade}
                 onMouseLeave={fecharInfoMensalidade}
