@@ -3,14 +3,10 @@ import programadores from "@/assets/imagens/programadores.jpg";
 import { Banner } from "@/componentes/Site/Banner/Index";
 import { Produtos } from "@/componentes/Site/Produtos/Index";
 import React from "react";
-import { Helmet } from "react-helmet";
 
 export function Home() {
   return (
     <>
-      <Helmet>
-        <title>Início | RosaTech</title>
-      </Helmet>
       <Banner />
       <div className="landingPage">
         <section className="landingPage__section" id="sobre">
